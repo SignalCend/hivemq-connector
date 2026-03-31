@@ -1,0 +1,80 @@
+# ============================================================
+# SignalCend HiveMQ Extension — Configuration
+# Place this file in:
+#   {HIVEMQ_HOME}/extensions/signalcend-hivemq-extension/
+# ============================================================
+
+# ---- REQUIRED -----------------------------------------------
+
+# Your SignalCend API key (from signalcend.com dashboard)
+signalcend.api.key=your-api-key-here
+
+# Your SignalCend API secret (shown once at signup)
+# Used for HMAC-SHA256 request signing
+signalcend.api.secret=your-api-secret-here
+
+
+# ---- OPTIONAL — API -----------------------------------------
+
+# SignalCend API base URL (change only for on-premises deployments)
+# signalcend.api.base.url=https://api.signalcend.com/v1
+
+# HTTP request timeout in milliseconds
+# Increase for high-latency deployments or satellite-connected brokers
+# signalcend.http.timeout.ms=5000
+
+
+# ---- OPTIONAL — TOPIC FILTERING -----------------------------
+
+# Comma-separated list of topic prefixes to arbitrate.
+# Use # to arbitrate all topics (default).
+# Use prefix/# syntax to match topic trees.
+#
+# Examples:
+#   signalcend.topic.filter=#
+#   signalcend.topic.filter=devices/#,sensors/#,fleet/#
+#   signalcend.topic.filter=plant/line-1/#,plant/line-2/#
+#
+# signalcend.topic.filter=#
+
+
+# ---- OPTIONAL — FIELD MAPPING -------------------------------
+# Map your payload field names to SignalCend's expected fields.
+# Only needed if your payloads use non-standard field names.
+
+# Field containing device status (online/offline/error/warning/etc.)
+# signalcend.status.field=status
+
+# Field containing unique device identifier
+# signalcend.device.id.field=device_id
+
+# Field containing ISO 8601 event timestamp
+# signalcend.timestamp.field=timestamp
+
+# Field containing RF signal strength in dBm
+# signalcend.signal.strength.field=signal_strength
+
+# Field containing monotonic sequence number
+# signalcend.sequence.field=sequence
+
+
+# ---- OPTIONAL — ARBITRATION BEHAVIOR -----------------------
+
+# Reconnect window in seconds — offline events arriving within
+# this window after a confirmed reconnect are classified as
+# late-arriving disconnects and overridden to online.
+# Increase for satellite uplinks or deep-sleep devices (max: 600)
+# signalcend.reconnect.window.seconds=30
+
+# Whether to pass through CONFIRM verdicts to downstream subscribers.
+# true  = deliver the message with X-SignalCend-Action: CONFIRM user property
+# false = drop CONFIRM messages (strict mode)
+# signalcend.act.on.confirm=true
+
+# Whether to drop messages with LOG_ONLY verdict.
+# true  = prevent delivery — message is dropped, verdict logged
+# false = deliver with X-SignalCend-Action: LOG_ONLY user property (default)
+# signalcend.block.on.log.only=false
+
+# Prefix for session IDs used in stateful reconnect arbitration
+# signalcend.session.id.prefix=hivemq
