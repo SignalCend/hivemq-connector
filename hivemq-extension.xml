@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<hivemq-extension>
+
+<id>signalcend-hivemq-extension</id>
+
+<version>1.0.0</version>
+
+<name>SignalCend State Arbitration Extension</name>
+
+<author>SignalCend</author>
+
+<priority>100</priority>
+
+<start-priority>1000</start-priority>
+
+</hivemq-extension>
