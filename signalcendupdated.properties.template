@@ -1,0 +1,9 @@
+# SignalCend HiveMQ Extension Configuration
+# Copy to signalcend.properties and edit
+
+api_key=your_api_key_here
+api_secret=your_api_secret_here
+base_url=https://api.signalcend.com/v1
+
+# Optional: Enable debug logging
+debug=true
