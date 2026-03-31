@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hivemq-extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="../extension.xsd">
+    
+    <id>signalcend-extension</id>
+    <name>SignalCend HiveMQ Extension</name>
+    <version>1.0.0</version>
+    <author>SignalCend</author>
+    <priority>1000</priority>
+    
+    <main-class>com.signalcend.hivemq.SignalCendExtensionMain</main-class>
+    
+    <properties>
+        <property>
+            <key>api-key</key>
+            <value>${API_KEY}</value>
+        </property>
+    </properties>
+</hivemq-extension>
